@@ -5,7 +5,7 @@ function uninstallMaven ($unzip_destination) {
   Start-Transcript -Path $mvn_logs_uninstall
 
   Write-Verbose "Uninstalling maven"
-  Get-ChildItem $path | Remove-Item -Force -Recurse -confirm:$false
+  Remove-Item $unzipped -Force -Recurse 
 
   [Environment]::SetEnvironmentVariable("MAVEN_HOME","$null","machine")
   [Environment]::SetEnvironmentVariable("Path",$env:Path + " ","Machine")
@@ -14,11 +14,13 @@ function uninstallMaven ($unzip_destination) {
 
 }
 
-$path = "C:\Users\user\OneDrive\Documents\JAVA\dependencies.properties"
+$path = "C:\Users\user\OneDrive\Documents\Tomcat_dependencies\dependencies.properties"
 $output = Get-Content $path | ConvertFrom-StringData
 
+$url=$output.url
 $unzip_destination = $output.unzip_destination
 $mvn_logs_uninstall = $output.mvn_logs_uninstall
+$unzipped=$output.unzipped
 
 uninstallMaven $unzip_destination
 

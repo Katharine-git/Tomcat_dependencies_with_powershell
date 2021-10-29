@@ -17,7 +17,7 @@ function installmaven ($url,$destination,$unzip_destination) {
   [Environment]::SetEnvironmentVariable("Path",$env:Path + ";$unzipped\bin","Machine")
 }
 
-$path = "C:\Users\user\OneDrive\Documents\JAVA\dependencies.properties"
+$path = "C:\Users\user\OneDrive\Documents\Tomcat dependencies\dependencies.properties"
 $output = Get-Content $path | ConvertFrom-StringData
 
 #variables
