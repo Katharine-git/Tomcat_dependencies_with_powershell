@@ -1,3 +1,7 @@
+#---Test if internet connectivity is available and install accordngly---------
+#-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+
 # download (if internet connectivity is available)
 
 function downloadmaven($url,$destination){
